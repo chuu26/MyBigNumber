@@ -68,7 +68,7 @@ class MyBigNumberTest implements IReceiver {
 	@Override
 	public void send(String msg) {
 		// TODO Auto-generated method stub
-		System.out.println("Case :" + i + msg + "\n");
+		System.out.println("Case : " + i + "\t" + msg + "\n");
 		i++;
 	}
 

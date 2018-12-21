@@ -8,18 +8,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MyBigNumberApplication implements IReceiver{
 
-	public static void main(String[] args)  throws IOException{
-		MyBigNumberApplication myclass = new MyBigNumberApplication();
-		MyBigNumber mybignumber = new MyBigNumber(myclass);
-		String s1 ="", s2 ="";
-		if(args.length > 0) {
-			s1 = args[0];
-			s2 = args[1];
-		}else {
-			s1 = "0";
-			s2 = "0";
+	public static void main(String[] args){
+		try {
+			MyBigNumberApplication myclass = new MyBigNumberApplication();
+			MyBigNumber mybignumber = new MyBigNumber(myclass);
+			String s1 ="", s2 ="";
+			if(args.length > 0) {
+				s1 = args[0];
+				s2 = args[1];
+			}else {
+				s1 = "0";
+				s2 = "0";
+			}
+			String sum = mybignumber.sum(s1, s2);
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
 		}
-		String sum = mybignumber.sum(s1, s2);
 		
 	}
 
