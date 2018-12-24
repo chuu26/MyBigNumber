@@ -20,8 +20,8 @@ public class MyBigNumber {
      * @param str2 string s2.
      */
 
-    public String sum(String str1,String str2) {
-        String fResult = ""; //save the result 2 num
+    public String sum(final String str1,final String str2) {
+        final String fResult = ""; //save the result 2 num
         String step = ""; //variable to get parameter of interface
         String conver = "";
         int len1 = str1.length(); 
@@ -63,7 +63,7 @@ public class MyBigNumber {
         
         if (str1.charAt(0) == '-' && str2.charAt(0) == '-') {
             idx = 1;
-            this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s2  : " 
+            this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s1  : " 
                                 + str1 + " \n not inlcude negative number in s2" + str2);
             throw new NumberFormatException(" error at index of s1 " + idx + " and error at index of s2 " + idx);
         }
@@ -78,7 +78,7 @@ public class MyBigNumber {
         if (flag2.find()) {
             idx = flag2.start();
             this.ireceiver.send(" NumberFormatException(\"not include symbols in s2  : " + str2);
-            throw new NumberFormatException(" error at index of s1 " + ++idx);
+            throw new NumberFormatException(" error at index of s2 " + ++idx);
         }
        
         for (int i = 0; i < maxLen; i++) { //loop
