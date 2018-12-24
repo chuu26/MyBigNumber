@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mybignumber;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
+/**.
  *
- * @author Box
+ * @author Box.
  */
 public class MyBigNumber {
 
@@ -25,13 +20,13 @@ public class MyBigNumber {
      * @param str2 string s2.
      */
 
-    public String sum(String str1, String str2) {
+    public String sum(String str1,String str2) {
         String fResult = ""; //save the result 2 num
         String step = ""; //variable to get parameter of interface
         String conver = "";
         int len1 = str1.length(); 
         int len2 = str2.length(); 
-        int maxLen = (len1 > len2) ? len1 : len2; //compare length s1 vs s2
+        final int maxLen = (len1 > len2) ? len1 : len2; //compare length s1 vs s2
         int index1; //index character s1
         int index2; //index character s2
         char c1; //character of index of s1
@@ -43,34 +38,33 @@ public class MyBigNumber {
         int remember = 0; 
         int remember1 = 0; //temp remember
         Pattern p = Pattern.compile("\\D");
-        Matcher  flag1 = p.matcher(str1); 
-        Matcher  flag2 = p.matcher(str2); //check negative
-	int idx; 	
+        final Matcher  flag1 = p.matcher(str1); 
+        final Matcher  flag2 = p.matcher(str2); //check negative
+        int idx; 
         
         if ((str1.equals("")) || (str1.trim().isEmpty())) {
-                str1 = "0";
+            str1 = "0";
         }
         if ((str2.equals("")) || (str2.trim().isEmpty())) {
-                str2 = "0";
+            str2 = "0";
         }
-		
-		
-	
+        
         if (str1.charAt(0) == '-' && str2.charAt(0) != '-') {
-            idx =1;
+            idx = 1;
             this.ireceiver.send(" NumberFormatException(\" not inlcude negative number in s1 : " + str1);
             throw new NumberFormatException("error at index " + idx);
         }
     
         if (str1.charAt(0) != '-' && str1.charAt(0) == '-') {
-            idx =1;
+            idx = 1;
             this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s2  : " + str2);
             throw new NumberFormatException(" error at index " + idx);
         }
         
         if (str1.charAt(0) == '-' && str2.charAt(0) == '-') {
-            idx =1;
-            this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s2  : " + str1 + " \n not inlcude negative number in s2" + str2);
+            idx = 1;
+            this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s2  : " 
+                                + str1 + " \n not inlcude negative number in s2" + str2);
             throw new NumberFormatException(" error at index of s1 " + idx + " and error at index of s2 " + idx);
         }
        
@@ -103,19 +97,22 @@ public class MyBigNumber {
             
             fResult = (total % 10) + fResult;
             remember = total / 10; //số remember
-		
+            
             if (i == 0) {
                 conver = "step " + i + " : get " + d1 + " plus " + d2 + " we have " + totalNoMem
-                    + " , " + " write " + (total % 10) + " , " + " remember " + remember + ", result : " + fResult + "\n";
+                    + " , " + " write " + (total % 10) + " , " + " remember " + remember
+                    + ", result : " + fResult + "\n";
             } else if (i == (maxLen - 1) && total >= 10) {
                 conver = "step " + i + " : get " + d1 + " plus " + d2 + " plus " + remember1
-                    + " we have " + total + " , " + "write " + total + " , " + "remember " + remember + ", result : 1" + fResult + "\n";
+                    + " we have " + total + " , " + "write " + total + " , " + "remember " + remember
+                    + ", result : 1" + fResult + "\n";
             } else {
                 conver = "step " + i + " : get " + d1 + " plus " + d2 + " plus " + remember1
-                    + " we have " + total + " , " + "write " + (total % 10) + " , " + "remember " + remember + ", result : " + fResult + "\n";
+                    + " we have " + total + " , " + "write " + (total % 10) + " , " + "remember " + remember
+                    + ", result : " + fResult + "\n";
             }
             step = step + conver;
-        }//end loop
+        } //end loop
         if (remember > 0) {
             String tempSre = fResult;
             fResult = remember + fResult;
@@ -123,6 +120,7 @@ public class MyBigNumber {
         }
         step = "\n" + str1 + " + " + str2 + " = " + fResult + "\n" + " Process implementation: \n" + step;
         this.ireceiver.send(step);
+        
         return fResult;
     }
 }
