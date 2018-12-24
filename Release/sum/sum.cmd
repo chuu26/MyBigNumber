@@ -1,1 +1,1 @@
-java -jar D:\Boxx\MyBigNumber\Release\sum\MyBigNumber-0.0.1-SNAPSHOT.jar %1 %2
+java -jar D:/Boxx/MyBigNumber/Release/sum/MyBigNumber.jar %1 %2
