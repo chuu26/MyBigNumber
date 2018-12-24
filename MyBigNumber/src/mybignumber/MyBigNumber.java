@@ -42,10 +42,10 @@ public class MyBigNumber {
         final Matcher  flag2 = p.matcher(str2); //check negative
         int idx; 
         
-        if ((str1.equals("")) || (str1.trim().isEmpty())) {
+        if ((str1 == null) || (str1.trim().isEmpty())) {
             str1 = "0";
         }
-        if ((str2.equals("")) || (str2.trim().isEmpty())) {
+        if ((str2 == null) || (str2.trim().isEmpty())) {
             str2 = "0";
         }
         
@@ -63,7 +63,7 @@ public class MyBigNumber {
         
         if (str1.charAt(0) == '-' && str2.charAt(0) == '-') {
             idx = 1;
-            this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s1  : " 
+            this.ireceiver.send(" NumberFormatException(\"not inlcude negative number in s2  : " 
                                 + str1 + " \n not inlcude negative number in s2" + str2);
             throw new NumberFormatException(" error at index of s1 " + idx + " and error at index of s2 " + idx);
         }
@@ -78,7 +78,7 @@ public class MyBigNumber {
         if (flag2.find()) {
             idx = flag2.start();
             this.ireceiver.send(" NumberFormatException(\"not include symbols in s2  : " + str2);
-            throw new NumberFormatException(" error at index of s2 " + ++idx);
+            throw new NumberFormatException(" error at index of s1 " + ++idx);
         }
        
         for (int i = 0; i < maxLen; i++) { //loop

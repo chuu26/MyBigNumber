@@ -55,7 +55,7 @@ public class MyBigNumberTest implements IReceiver{
             MyBigNumberTest test = new MyBigNumberTest();
             MyBigNumber mybignumber = new MyBigNumber(test);
             String result = mybignumber.sum(str1, str2);
-            
+            assertEquals(expResult, result);
     }
 
     @Test

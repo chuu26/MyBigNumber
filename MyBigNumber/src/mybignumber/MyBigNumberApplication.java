@@ -15,14 +15,9 @@ public class MyBigNumberApplication implements IReceiver{
 		try {
 			MyBigNumberApplication myclass = new MyBigNumberApplication();
 			MyBigNumber mybignumber = new MyBigNumber(myclass);
-			String s1 ="", s2 ="";
-			if(args.length > 0) {
-				s1 = args[0];
-				s2 = args[1];
-			}else {
-				s1 = "0";
-				s2 = "0";
-			}
+			String s1 = args[0];
+                        String s2 = args[1];
+			
 			String sum = mybignumber.sum(s1, s2);
 		}catch(Exception e) {
 			System.out.println(e.getMessage());
